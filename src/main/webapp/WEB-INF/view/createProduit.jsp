@@ -1,27 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
- <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+ pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
 <html>
+	<link rel="stylesheet" type="text/css"
+href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" />
+<c:url value="/css/main.css" var="jstlCss" />
+<link href="${jstlCss}" rel="stylesheet" />
+<script type="text/javascript"
+src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <head>
-<meta-charset="utf-8">
-<title>Créer un produit</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
+<title>Ajouter Produit</title>
 </head>
 <body>
+<div class="container mt-5" >
+<div class="card-body">
+<form action="saveProduit" method="post">
+ <div class="form-group">
+ <label class="control-label">Nom Produit :</label>
+ <input type="text" name="nomProduit" class="form-control" placeholder="Nom du produit"/>
+ </div>
+ <div class="form-group">
+ <label class="control-label">Prix Produit :</label>
+ <input type="text" name="prixProduit" class="form-control" placeholder="Prix du produit"/>
+ </div>
+ <div class="form-group">
+ <label class="control-label">Date de création :</label>
+ <input type="date" name="date" class="form-control" />
+ </div>
 
-	<form action="saveProduit" method="post">
-		<pre>
-			nom: <input type="text" name="nomProduit">
-			prix: <input type="text" name="prixProduit">
-			date création: <input type="date" name="date">		
-			<input type="submit" value="ajouter">	
-		</pre>
-	</form>
-	
-	${msg}
-	<br/>
-	 <br/>
-	<a href="showCreate">Créer Produit</a>
-	
-	<br/>
-	<a href="ListeProduits">Liste Produits</a>
+ <div>
+ <button type="submit" class="btn btn-primary mt-3">Ajouter</button>
+</div>
+</form>
+</div>
+${msg}
+<br/>
+<br/>
+<a href="ListeProduits">Liste Produits</a>
+</div>
 </body>
 </html>
